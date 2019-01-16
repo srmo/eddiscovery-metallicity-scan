@@ -3,7 +3,8 @@ SELECT json_extract(allFound.EventData, '$.SystemName'), allFound.EventTime
 		 json_each(allFound.EventData) AS jsonAllFound
 WHERE allFound.EventType='FSSAllBodiesFound'
 AND	  jsonAllFound.key='SystemName'
-AND EXISTS 
+--and not exists (select 1 from metallicity_candidates mc where mc.id = allFound.id)
+/*AND EXISTS 
 	(SELECT 1 
 		FROM JournalEntries jumpEntries, 
 			 json_each(jumpEntries.EventData) AS jsonJe2
@@ -11,6 +12,7 @@ AND EXISTS
 		AND   jsonJe2.key='StarSystem'
 		AND	  jsonJe2.value=jsonAllFound.value
 	)
+	*/
 AND EXISTS
 	(SELECT 1
 		FROM JournalEntries starCandidates
