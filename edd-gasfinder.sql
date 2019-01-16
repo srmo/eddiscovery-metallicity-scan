@@ -3,13 +3,16 @@ SELECT allFound.EventTime, json_extract(allFound.EventData, '$.SystemName') as S
 		 json_each(allFound.EventData) AS jsonAllFound
 WHERE allFound.EventType='FSSAllBodiesFound'
 AND	  jsonAllFound.key='SystemName'
-AND EXISTS 
-	(SELECT 1 FROM JournalEntries AS jumpEntries, 
+--and not exists (select 1 from metallicity_candidates mc where mc.id = allFound.id)
+/*AND EXISTS 
+	(SELECT 1 
+		FROM JournalEntries jumpEntries, 
 			 json_each(jumpEntries.EventData) AS jsonJe2
 		WHERE jumpEntries.EventType='FSDJump'
 		AND   jsonJe2.key='StarSystem'
 		AND	  jsonJe2.value=jsonAllFound.value
-	) -- Why? To make sure a visit occurred?
+	)
+	*/
 AND EXISTS
 	(SELECT 1 FROM JournalEntries AS starCandidates
 		WHERE starCandidates.EventType='Scan'
