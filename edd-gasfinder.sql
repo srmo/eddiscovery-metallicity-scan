@@ -10,6 +10,6 @@ FROM (
 		WHERE EventType IS 'Scan'
 	) AS starCandidates -- nested query to eliminate as many lines as possible before the join, for speed
 	ON json_extract(starCandidates.EventData, '$.BodyName') IS allFound.SystemName
-	AND json_extract(starCandidates.EventData, '$.StarType') IN ('K', 'F', 'G')
+WHERE json_extract(starCandidates.EventData, '$.StarType') IN ('K', 'F', 'G')
 GROUP BY allFound.SystemName -- Make eliminating stray duplicate entries easier.
 ORDER BY allFound.EventTime DESC
