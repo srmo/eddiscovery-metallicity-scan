@@ -1,4 +1,4 @@
-SELECT allFound.EventTime, allFound.SystemName
+SELECT max(allFound.EventTime), allFound.SystemName
 FROM (
 		SELECT MAX(EventTime) AS EventTime, json_extract(EventData, '$.SystemName') AS SystemName
 		FROM JournalEntries
@@ -12,5 +12,5 @@ FROM (
 		AND json_extract(EventData, '$.StarType') IN ('K', 'F', 'G')
 	) AS starCandidates -- nested query to eliminate as many lines as possible before the join, for speed
 	ON starCandidates.BodyName IS allFound.SystemName
-	
+GROUP BY SystemName	
 ORDER BY allFound.EventTime DESC
