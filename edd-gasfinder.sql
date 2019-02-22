@@ -1,15 +1,6 @@
-SELECT allFound.EventTime, allFound.SystemName
-FROM (
-		SELECT MAX(EventTime) AS EventTime, json_extract(EventData, '$.SystemName') AS SystemName
+SELECT EventTime, json_extract(EventData, '$.BodyName') AS BodyName
 		FROM JournalEntries
-		WHERE EventType IS 'FSSAllBodiesFound'
-		GROUP BY SystemName
-	) AS allFound -- nested query to eliminate as many lines as possible before the join, for speed
-	INNER JOIN (
-		SELECT DISTINCT json_extract(EventData, '$.BodyName') AS BodyName
-		FROM JournalEntries
-		WHERE EventType IS 'Scan'
+		WHERE EventType IS 'Scan' AND substr(BodyName,-2,1)!=' '
 		AND json_extract(EventData, '$.StarType') IN ('K', 'F', 'G')
-	) AS starCandidates -- nested query to eliminate as many lines as possible before the join, for speed
-	ON starCandidates.BodyName IS allFound.SystemName
-ORDER BY allFound.EventTime DESC
+GROUP BY BodyName
+ORDER BY EventTime DESC
