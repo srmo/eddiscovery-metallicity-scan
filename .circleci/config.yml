@@ -14,7 +14,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    working_directory: ~/repo/tgms-logger
+    working_directory: ~/repo
 
     environment:
       # Customize the JVM maximum heap limit
@@ -23,7 +23,6 @@ jobs:
 
     steps:
       - checkout
-          path: ~/repo
 
       # Download and cache dependencies
       - restore_cache:
@@ -33,8 +32,10 @@ jobs:
             - v1-dependencies-
 
       - run: gradle dependencies
+          working_directory: ~/repo/tgms-logger
 
       - save_cache:
+          working_directory: ~/repo/tgms-logger
           paths:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
