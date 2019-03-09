@@ -1,0 +1,86 @@
+{
+  "timestamp": "2019-02-03T09:23:03Z",
+  "event": "Scan",
+  "ScanType": "Detailed",
+  "BodyName": "Flyiedgiae YN-P b36-3 7 b",
+  "BodyID": 37,
+  "Parents": [
+    {
+      "Planet": 35
+    },
+    {
+      "Star": 0
+    }
+  ],
+  "DistanceFromArrivalLS": 1410.744995,
+  "TidalLock": true,
+  "TerraformState": "",
+  "PlanetClass": "Icy body",
+  "Atmosphere": "",
+  "AtmosphereType": "None",
+  "Volcanism": "major water geysers volcanism",
+  "MassEM": 0.002819,
+  "Radius": 1243691.375000,
+  "SurfaceGravity": 0.726450,
+  "SurfaceTemperature": 35.813324,
+  "SurfacePressure": 0.000000,
+  "Landable": true,
+  "Materials": [
+    {
+      "Name": "sulphur",
+      "Percent": 26.368969
+    },
+    {
+      "Name": "carbon",
+      "Percent": 22.173571
+    },
+    {
+      "Name": "phosphorus",
+      "Percent": 14.195901
+    },
+    {
+      "Name": "iron",
+      "Percent": 11.856735
+    },
+    {
+      "Name": "nickel",
+      "Percent": 8.967937
+    },
+    {
+      "Name": "chromium",
+      "Percent": 5.332367
+    },
+    {
+      "Name": "manganese",
+      "Percent": 4.896711
+    },
+    {
+      "Name": "selenium",
+      "Percent": 4.126966
+    },
+    {
+      "Name": "antimony",
+      "Percent": 0.721220
+    },
+    {
+      "Name": "tin",
+      "Percent": 0.708575
+    },
+    {
+      "Name": "tungsten",
+      "Percent": 0.651054
+    }
+  ],
+  "Composition": {
+    "Ice": 0.825667,
+    "Rock": 0.158760,
+    "Metal": 0.015573
+  },
+  "SemiMajorAxis": 189518784.000000,
+  "Eccentricity": 0.000017,
+  "OrbitalInclination": -0.054216,
+  "Periapsis": 30.122135,
+  "OrbitalPeriod": 107075.406250,
+  "RotationPeriod": 107082.781250,
+  "AxialTilt": -0.412117
+}
