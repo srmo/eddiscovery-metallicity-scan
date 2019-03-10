@@ -35,13 +35,17 @@ dependencies {
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.1'
 }
 
-
 runtime {
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
     modules = ['java.base','java.compiler','java.desktop','java.logging','java.management','java.naming','java.sql','java.xml','jdk.unsupported']
 }
 
-runtimeZip {}
+runtimeZip {
+}
+
+tasks.runtime.dependsOn(test)
+
+tasks.runtimeZip.dependsOn(test)
 
 // Define the main class for the application
 mainClassName = 'com.github.srmo.tgms.logger.App'
