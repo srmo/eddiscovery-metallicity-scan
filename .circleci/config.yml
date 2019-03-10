@@ -47,5 +47,5 @@ jobs:
 
       # run tests!
       - run:
-          command: gradle runtime
+          command: gradle runtimeZip
           working_directory: tgms-logger

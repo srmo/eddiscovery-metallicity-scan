@@ -41,5 +41,7 @@ runtime {
     modules = ['java.base','java.compiler','java.desktop','java.logging','java.management','java.naming','java.sql','java.xml','jdk.unsupported']
 }
 
+runtimeZip {}
+
 // Define the main class for the application
 mainClassName = 'com.github.srmo.tgms.logger.App'
