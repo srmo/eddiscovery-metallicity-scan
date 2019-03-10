@@ -34,7 +34,7 @@ OR
 * cd into `tgms-logger`
 * invoke `gradlew run`
 
-###TODO
+### TODO
 * add build description
 * add tests
 * add documentation
