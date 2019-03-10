@@ -4,8 +4,5 @@
 # Ignore Gradle build output directory
 build
 .idea
-gradle/
-gradlew
-gradlew.bat
 /.idea/**
 /.idea/gradle.xml
