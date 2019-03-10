@@ -32,10 +32,8 @@ jobs:
             - v1-dependencies-
 
       - run: gradle dependencies
-          working_directory: ~/repo/tgms-logger
 
       - save_cache:
-          working_directory: ~/repo/tgms-logger
           paths:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
