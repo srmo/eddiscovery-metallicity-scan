@@ -42,3 +42,8 @@ jobs:
 
       # run tests!
       - run: gradle test
+        working_directory: tgms-logger
+
+      # run tests!
+      - run: gradle runtime
+        working_directory: tgms-logger
