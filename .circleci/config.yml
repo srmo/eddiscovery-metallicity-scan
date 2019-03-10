@@ -31,14 +31,21 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: gradle dependencies
-          working_directory: ~/repo/tgms-logger
+      - run:
+          command: gradle dependencies
+          working_directory: tgms-logger
 
       - save_cache:
-          working_directory: ~/repo/tgms-logger
           paths:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests!
-      - run: gradle test
+      - run:
+          command: gradle test
+          working_directory: tgms-logger
+
+      # run tests!
+      - run:
+          command: gradle runtimeZip
+          working_directory: tgms-logger
