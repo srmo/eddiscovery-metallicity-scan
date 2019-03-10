@@ -43,7 +43,7 @@ public class AppController {
         logUi("... assuming program directory " + userHome);
 
         if (Files.exists(tgmsLoggerDir)) {
-            logUi("... found previous tgms-com.github.tgms.logger directory [" + tgmsLoggerDir + "]");
+            logUi("... found previous tgms-logger directory [" + tgmsLoggerDir + "]");
         } else {
             boolean userAllowedCreation = mainFrame.askForPermissionToCreateFolder(tgmsLoggerDir);
             if (!userAllowedCreation) {
@@ -59,6 +59,7 @@ public class AppController {
                 }
             }
         }
+        mainFrame.setTgmsLoggerDir(tgmsLoggerDir);
         tryLoadProperties();
         prepareProperties();
 

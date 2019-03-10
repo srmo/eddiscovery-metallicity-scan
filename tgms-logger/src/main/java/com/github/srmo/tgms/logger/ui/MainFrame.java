@@ -32,6 +32,7 @@ public class MainFrame {
     private Path selectedPath;
     private Executor executor = Executors.newSingleThreadExecutor();
     private Consumer<Path> pathChooseCallback;
+    private Path tgmsLoggerDir;
 
     //Step2 - Creating Components
     public void createComponents(Container pane) {
@@ -112,7 +113,7 @@ public class MainFrame {
     public void startScan() {
         executor.execute(() -> {
             final Set<EDScanEvent> edScanEvents = logScanner.extractScanEventsFromLogs(selectedPath, this::addText);
-            logScanner.computeSystemBuckets(edScanEvents, this::addText);
+            logScanner.computeSystemBuckets(edScanEvents, this::addText, tgmsLoggerDir);
         });
     }
 
@@ -133,5 +134,9 @@ public class MainFrame {
 
     public void setPathChooseCallback(Consumer<Path> callback) {
         this.pathChooseCallback = callback;
+    }
+
+    public void setTgmsLoggerDir(Path tgmsLoggerDir) {
+        this.tgmsLoggerDir = tgmsLoggerDir;
     }
 }
