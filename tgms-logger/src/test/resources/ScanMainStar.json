@@ -1,0 +1,26 @@
+{
+  "timestamp": "2019-02-03T09:18:08Z",
+  "event": "Scan",
+  "ScanType": "AutoScan",
+  "BodyName": "Flyiedgiae YN-P b36-3",
+  "BodyID": 0,
+  "DistanceFromArrivalLS": 0.000000,
+  "StarType": "M",
+  "StellarMass": 0.253906,
+  "Radius": 309587488.000000,
+  "AbsoluteMagnitude": 10.661865,
+  "Age_MY": 3702,
+  "SurfaceTemperature": 2262.000000,
+  "Luminosity": "Va",
+  "RotationPeriod": 131170.921875,
+  "AxialTilt": 0.000000,
+  "Rings": [
+    {
+      "Name": "Flyiedgiae YN-P b36-3 A Belt",
+      "RingClass": "eRingClass_MetalRich",
+      "MassMT": 3.058e+08,
+      "InnerRad": 5.9336e+08,
+      "OuterRad": 1.528e+09
+    }
+  ]
+}
